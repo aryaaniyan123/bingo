@@ -5,6 +5,8 @@ const passport      = require('passport');
 const pe            = require('parse-error');
 const cors          = require('cors');
 
+const config = require('./config/config.js');
+
 const v1    = require('./routes/v1');
 const app   = express();
 
@@ -36,7 +38,7 @@ app.use('/v1', v1);
 
 app.use('/', function(req, res){
    res.statusCode = 200;
-   res.json({status:"success", message:"Pending API", data:{}})
+   res.json({status:"success", data:{}})
 });
 
 // catch 404 forward to error handler
@@ -55,6 +57,10 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+app.listen(config.port, () => {
+  console.info(`server started on port ${config.port} (${config.app})`);
 });
 
 module.exports = app;
