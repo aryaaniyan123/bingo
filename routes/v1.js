@@ -3,7 +3,7 @@ const router         = express.Router();
 
 const UserController   = require('../controllers/user.controller');
 const GameController = require('../controllers/game.controller');
-const HomeController   = require('../controllers/home.controller');
+// const HomeController   = require('../controllers/home.controller');
 
 const custom           = require('./../middleware/custom');
 

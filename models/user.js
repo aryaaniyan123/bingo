@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
         password  : DataTypes.STRING,
     });
 
-    Model.associate = function(models){
-        this.Companies = this.belongsToMany(models.Company, {through: 'UserCompany'});
-    };
+    // Model.associate = function(models){
+    //     this.Companies = this.belongsToMany(models.Company, {through: 'UserCompany'});
+    // };
     Model.beforeSave(async (user, options) => {
         let err;
         if (user.changed('password')){
